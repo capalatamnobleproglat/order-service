@@ -13,8 +13,8 @@ import lombok.AllArgsConstructor;
 public class OrderDto {
 
     private Long id;
-    private Long user_id;
-    private Long product_id;
+    private Long userId;
+    private Long productId;
     private Long quantity;
     private Date orderDate;
 

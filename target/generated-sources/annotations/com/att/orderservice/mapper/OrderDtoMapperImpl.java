@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-07-31T20:11:51+0000",
+    date = "2023-07-31T20:36:57+0000",
     comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.35.0.v20230721-1147, environment: Java 17.0.7 (Eclipse Adoptium)"
 )
 @Component
@@ -23,9 +23,9 @@ public class OrderDtoMapperImpl implements OrderDtoMapper {
 
         order.setId( OrderDTO.getId() );
         order.setOrderDate( OrderDTO.getOrderDate() );
-        order.setProduct_id( OrderDTO.getProduct_id() );
+        order.setProductId( OrderDTO.getProductId() );
         order.setQuantity( OrderDTO.getQuantity() );
-        order.setUser_id( OrderDTO.getUser_id() );
+        order.setUserId( OrderDTO.getUserId() );
 
         return order;
     }
