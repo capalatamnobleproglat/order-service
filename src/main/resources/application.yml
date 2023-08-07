@@ -40,7 +40,7 @@ spring:
       probability: 1.0
 
 server:
-  port: 8082
+  port: 8083
 
 management:
   endpoint:
@@ -60,16 +60,3 @@ eureka:
 logging:
   level:
     org.springframework: DEBUG
-
-resilience4j.circuitbreaker:
-  instances:
-    user-service:
-      registerHealthIndicator: true
-      slidingWindowSize: 100
-      permittedNumberOfCallsInHalfOpenState: 10
-      waitDurationInOpenState: 10s
-      failureRateThreshold: 60
-      eventConsumerBufferSize: 10
-      recordExceptions:
-        - org.springframework.web.client.HttpServerErrorException
-        - java.io.IOException

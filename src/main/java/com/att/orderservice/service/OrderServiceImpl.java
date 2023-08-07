@@ -4,7 +4,6 @@ import com.att.orderservice.client.ProductClient;
 import com.att.orderservice.client.UserClient;
 import com.att.orderservice.dto.ProductDto;
 import com.att.orderservice.dto.UserDto;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,6 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
     }
 
-    @CircuitBreaker(name = "user-service", fallbackMethod = "fallbackForGetUser")
     @Override
     public OrderDto createOrder(OrderDto orderDto) {
         // Verify that user and product exist
@@ -93,11 +91,5 @@ public class OrderServiceImpl implements OrderService {
         Order order = new Order();
         BeanUtils.copyProperties(orderDto, order);
         return order;
-    }
-
-    private List<OrderDto> fallbackForGetUser(Throwable e) {
-        e.printStackTrace();
-
-        return List.of();
     }
 }
