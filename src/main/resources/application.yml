@@ -14,6 +14,19 @@ spring:
   cloud:
     config:
       enabled: false
+      bus:
+        enabled: true
+        kafka:
+          binder:
+            brokers: localhost:9092
+  config:
+    import:
+      config-server: http://localhost:8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 server:
   port: 8083
